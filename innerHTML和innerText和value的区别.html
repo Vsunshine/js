@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            //value: 就是控制单闭合标签的value属性;
+            //innerHTML: 双闭合标签内部的内容(识别标签);
+            //innerText: 双闭合标签内部的内容(不识别标签);
+
+
+            var div1 = document.getElementsByTagName("div")[0];
+            var div2 = document.getElementsByTagName("div")[1];
+            var inp = document.getElementsByTagName("input")[0];
+
+            //点击文档的时候触动事件
+            document.onclick = function () {
+                //value: 就是控制单闭合标签的value属性;
+                //获取属性值
+//                console.log(inp.value);
+//                inp.value = "你控制个P";//可以给属性赋值
+
+
+                //innerHTML: 双闭合标签内部的内容(识别标签);
+                    //获取值的时候可以获取标签
+                console.log(div1.innerHTML);
+                div1.innerHTML = "我是innerHTML赋值的内容<li>我是li</li>"
+
+
+                //innerText: 双闭合标签内部的内容(不识别标签);
+                    //获取值的时候不获取标签
+                        //innerText: 老版本火狐不支持；textContent;
+                console.log(div2.innerText);
+                div2.innerText = "我是innerText赋值的内容<li>我是li</li>";
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+    <div>我是div，控制innerHTML属性<i>我是p标签</i></div>
+    <div>
+        我是div，控制innerText属性
+        <i>我是p标签</i>
+    </div>
+    <div><input type="text" value="我控制value属性"/></div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //封装两个方法，兼容老版本的火狐；(了解)
+    //参数：哪个元素;
+    function getTet(ele){
+        //如果不支持，就等于undefined
+        if(ele.innerText !== undefined){
+            //不等于undefined就是支持，支持就能够调用；
+            return ele.innerText;
+        }else{
+            //不支持就是老版本的火狐，那就使用textContent;
+            return ele.textContent;
+        }
+    }
+
+    //赋值；（不要返回值，要的是功能：赋值）
+    //参数：哪个元素;  赋值的内容;
+    function setTxt(ele,str){
+        if(ele.innerText !== undefined){
+            ele.innerText = str;
+        }else{
+            ele.textContent = str;
+        }
+    }
+</script>
+</body>
+</html>
