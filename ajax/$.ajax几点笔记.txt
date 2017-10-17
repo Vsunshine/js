@@ -1,0 +1,9 @@
+1. type参数可以设置的请求方式：get(默认)，post，put，delete,
+    put，delete, 仅部分浏览器可以支持
+
+2. data参数，要求为Object或String类型
+   Object类型     {foo1:"bar1",foo2:"bar2"}    转换为    &foo1=bar1&foo2=bar2；
+   如果值为数组  {foo:["bar1","bar2"]}            转换为    &foo=bar1&foo=bar2 ;
+
+3. $.each(data,function(index,value)) 遍历处理data，可以是数组、DOM、json等，取决于直接给定或者ajax返回的类型;
+    function (index, value)中index是当前元素的位置，value是值。
