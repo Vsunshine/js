@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // caller
+        // 1. 这个属性只有在函数执行时才有用
+        // 2. 在js中，如果函数是由顶层调用的，返回null；
+        // 3. functionName.caller, functionName是当前正在执行的函数。
+        // function a(){
+        //     b();
+        // }
+        // function b() {  
+        //     console.log(b.caller); //b是在a里被调用的，所以输出函数a和它的内容
+        // }
+        // a();
+
+        // function a() {
+        //     b();
+        // }
+
+        // function b() {
+        //     console.log(b.caller); 
+        // }
+        // b(); //如果直接调用b，即为顶层调用，返回null；
+
+
+
+
+
+        //callee
+        //1. 他是arguments的一个属性，返回正在执行的函数本身的引用； arguments.callee
+        //2. 他有一个length属性，可以获得形参的个数，可以判断形参和实参的个数是否相等，即arguments.callee.length == arguments.length
+        //3. 可以用来递归匿名函数；
+
+        // 原函数
+        // function ab(n){
+        //     if(n<1){
+        //         return 1;
+        //     }else{
+        //         return n*ab(n-1);
+        //     }
+        // }
+
+        // function ab(n) {
+        //     if (n < 1) {
+        //         return 1;
+        //     } else {
+        //         return n * arguments.callee(n - 1);
+        //     }
+        // }
+        // console.log(ab(5));
+
+        // 例2
+        function a() {
+            b();
+        }
+
+        function b() {
+            console.log(b.arguments.callee);
+        }
+        b(); //返回b及其主题
+    </script>
+</body>
+
+</html>
