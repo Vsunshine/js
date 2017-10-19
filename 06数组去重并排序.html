@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重并排序</title>
+</head>
+
+<body>
+    <script>
+        var arr = [4, 8, 45, 12, 66, 3, 1, 5, 1, 4, 12, 66, 23];
+
+        // 排序
+        function arry(arr) {
+            for (var k = 0; k < arr.length-1; k++) {
+                for (var i = 0; i < arr.length -k -1; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        var temp = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+            
+        }
+        
+        // 去重
+        var arr2 = [];
+        console.log(arry(arr));
+        for(var i = 0; i<arry(arr).length;i++){
+            if(arr2.indexOf(arry(arr)[i]) == -1){
+                arr2.push(arry(arr)[i]);
+            }
+        }
+        console.log(arr2);
+    </script>
+</body>
+
+</html>
