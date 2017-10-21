@@ -1,0 +1,1 @@
+undefined和null与任何有意义的值比较返回的都是false，但是null与undefined之间互相比较返回的是true。

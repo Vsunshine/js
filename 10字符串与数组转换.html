@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var str = 'get-element-by-id';
+         function a(str) {  
+            //  按照横杆装行转换成数组
+            var arr = str.split('-');
+            for(var i=1; i<arr.length; i++){
+                // 数组里的每个元素的头字母转换成大写，在加上后面的字母
+                arr[i] = arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1);
+            }
+            // 再次将字符串转换成字符串
+            var str2 = arr.join('');
+            return str2;
+         }
+         console.log(a(str));
+    </script>
+</body>
+</html>
