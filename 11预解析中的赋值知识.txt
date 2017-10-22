@@ -1,0 +1,6 @@
+var a = 10;
+function a(){
+     a = 1;
+}
+a = 2;
+alert(a);   //2

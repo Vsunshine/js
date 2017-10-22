@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // in关键字
+        // 1. （变量 in 对象）
+        //   1.1  如果‘对象’为数组，则变量应该为数字的索引；
+        //   1.2  如果‘对象’为对象，则变量应该为对象的属性；
+
+        // var a = ['d','c','f','g','t'];
+        // console.log(4 in a);    //true  a数组中有a[4];
+        // console.log('c' in a);  //false a数组中没有a['c'];
+
+        var a = {
+            name:'xiaoming',
+            age:418,
+            shui:function (){
+                console.log('睡觉');
+            }
+        }
+
+        console.log('name' in a);  //true
+        console.log('shui' in a);  //true
+    </script>
+</body>
+
+</html>

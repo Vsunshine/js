@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         获取 url 中的参数
+        // 1. 指定参数名称，返回该参数的值 或者 空字符串
+        // 2. 不指定参数名称，返回全部的参数对象 或者 {}
+        // 3. 如果存在多个同名参数，则返回数组
+        // http://www.nowcoder.com?key=1&key=2&key=3&test=4#hehe
+        // [1, 2, 3]
+        
+
+        //先判断网址里有没有数据；没有的话直接返回
+        function getUrlParam(sUrl, sKey){
+            var wenIn = sUrl.indexOf('?');
+            var obj = {};
+            //先判断网址后面有没有参数
+            if(wenIn == -1){
+                if(sKey == undefined){
+                    return obj;
+                }else{
+                    return '';
+                }
+            }
+
+            var arrZh = (sUrl.split('?')[1]).split('#')[0];
+            var arrXi = arrZh.split("&");
+
+            for(var i=0; i<arrXi.length; i++){
+                //将数据取出来
+                var arrXX = arrXi[i].split('=');
+                var key = arrXX[0];
+                var value = arrXX[1];
+                //每个key都去对象里查询一下是否存在，
+                // hasOwnProperty（）  看对象里是否有这个属性
+                if(obj.hasOwnProperty(key)){
+                    //存在的话将这个对象转换成数组，将新的值和旧的值都添加进去；
+                    //第一次碰见相同的属性，就把这个属性转换成数组；
+                    //第二次碰见相同的属性，先判断这个属性在对想里是不是数组，是的话直接添加；
+                    if(Array.isArray(obj[key])){
+                        obj[key].push(value);
+                    }else{
+                        var val = obj[key];
+                        obj[key] = [];
+                        obj[key].push(val);
+                        obj[key].push(value);
+                    }
+                }else{
+                    //不存在的话，直接添加新的属性
+                    obj[key] = value;
+                }
+            }
+
+            if(sKey){
+                return obj[sKey]?obj[sKey] : '';
+            }else{
+                return obj;
+            }
+        }
+        var sUrl = 'http://www.nowcoder.com?key=1&key=2&key=3&test=4#hehe';
+        console.log(getUrlParam(sUrl));
+
+
+
+        
+        
+        
+        
+
+        // function getUrlParam(sUrl, sKey) {
+        //     var obj = {};
+        //     var index = sUrl.indexOf('?');
+        //     //url没有带参数
+        //     if(index==-1) {
+        //         if(sKey==undefined){
+        //             return obj;
+        //         }else{
+        //             return "";
+        //         }
+        //     }
+             
+        //     var queryString = (sUrl.split("?")[1]).split("#")[0];
+        //     var query = queryString.split('&');//分离出了所有参数
+
+        //     for(var i=0;i<query.length;i++){
+        //         var keyValue = query[i].split("=");
+        //         var key = keyValue[0];
+        //         var value = keyValue[1];
+        //         // console.log('key: '+key+" value: "+value);
+        //         if(value ==""){
+        //             continue;//value值为空，进行下一次循环？为空就不进行统计了？
+        //         }
+        //         //先检查对象里有没有这个属性
+        //         if(obj.hasOwnProperty(key)){//hasOwnProperty()函数用于指示一个对象自身(不包括原型链)是否具有指定名称的属性。如果有，返回true，否则返回false。
+        //             //如果有这个属性，看一下这个属性是不是数组
+        //             if(Array.isArray(obj[key])){//判断是不是数组
+        //                 // 然后将这个值添加进去
+        //                 obj[key].push(value);
+        //             }else{//不是数组
+        //                 //如果一开始不是数组，将它转换成数组
+        //                 var val = obj[key];
+        //                 obj[key] = [];
+        //                 //将原来已经有的值添加进去
+        //                 obj[key].push(val);//?????有点蒙，这是为什么呀
+        //                 //将新的值添加进去
+        //                 obj[key].push(value);//这一段else里面的是真的不懂
+        //             }   
+                    
+        //         }else{//有新参数，直接添加
+        //             obj[key]=value;
+        //         }
+          
+        //     }
+        //     //console.log(obj)
+        //     //1.指定参数名的，返回该参数的值或空
+        //     if(sKey){
+        //         return obj[sKey]?obj[sKey]:"";
+        //     }else{
+        //         return obj;
+          
+        //     }
+          
+        // }
+        
+    </script>
+</body>
+
+</html>
