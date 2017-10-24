@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function re(str) {
+
+            str += '';
+
+            return str.split("").reverse().join("");
+
+        }
+
+        function toRMB(num) {
+
+            var tmp = '';
+
+            for (var i = 1; i <= re(num).length; i++) {
+
+                tmp += re(num)[i - 1];
+
+                if (i % 3 == 0 && i != re(num).length) {
+
+                    tmp += ',';
+
+                }
+
+            }
+
+            return re(tmp);
+
+        }
+    </script>
+</body>
+
+</html>
