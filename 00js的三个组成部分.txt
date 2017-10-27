@@ -1,0 +1,12 @@
+javascript的三个组成部分
+
+1.  ECMAScript  
+     JS 的核心，
+     描述了该语言的语法和基本对象，数据类型等；
+     它不是JS独有的，ActionScript和ScriptEase的核心也是它；
+  
+2. DOM
+    描述了处理网页内容的方法与接口；
+
+3. BOM
+    描述了与浏览器进行交互的方法与接口 
