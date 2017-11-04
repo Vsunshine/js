@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <iframe src="http://www.api.com/window.postMessage.html" onload="onLoad()"></iframe>
+
+    <script>
+        function onLoad(){
+            var iframe = document.querySelector('iframe');
+            
+            var win = iframe.contentWindow;
+
+            // message:  是要发送的消息，类型为 String、Object (IE8、9 不支持)
+            // targetOrigin:  通过窗口的origin属性来指定哪些窗口能接收到消息事件，
+            //                  其值可以是字符串"*"（表示无限制）或者一个URI
+            win.postMessage('哈哈哈，这是来自a.html的消息','*');
+        }
+    </script>
+</body>
+</html>

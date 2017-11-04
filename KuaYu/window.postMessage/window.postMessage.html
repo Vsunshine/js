@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 通过监听自身的message事件来获取传过来的消息，消息内容储存在该事件对象的data属性中。
+        window.onmessage = function (e){
+         var e = e || event;
+         alert(e.data);
+         console.log(e.data);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <iframe src="http://www.api.com/window.name.html" onload="getData()" style="display:none" id="iframe"></iframe>
+
+
+    <script>
+
+        //当前是www.study.com下；
+
+        function getData(){
+            var iframe = document.getElementById('iframe');
+            iframe.onload = function (){
+                console.log(11);
+                var data = iframe.contentWindow.name;
+                alert(data);
+            }
+            // a.html想要得到iframe所获取到的数据，也就是想要得到iframe的window.name的值，
+            // 还必须把这个iframe的src设成跟a.html页面同一个域才行，
+            // 不然根据前面讲的同源策略，a.html是不能访问到iframe里的window.name属性的。
+            // 这就是整个跨域过程。
+            iframe.src = 'about:blank';   //
+        }
+    </script>
+</body>
+</html>
