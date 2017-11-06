@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 数组的 from方法
+
+        // Array.from() 方法从一个类似数组或可迭代的对象
+        // (包括 Array，Map，Set，String，TypedArray，arguments 对象等等) 中创建一个新的数组实例
+
+        // 1. Array.from(arrayLike[, mapFn[, thisArg]])
+        // 参数	描述
+        // arrayLike	必需，想要转换成真实数组的类数组对象或可迭代的对象。
+        // mapFn	可选，如果指定了该参数，则最后生成的数组会经过该函数的加工处理后再返回。
+        // thisArg	可选，执行 mapFn 函数时 this 的值。
+
+        // 例
+        // const bar = ["a", "b", "c"];
+        // Array.from(bar);
+        // // ["a", "b", "c"]
+
+        // Array.from('foo');
+        // // ["f", "o", "o"]
+
+        // Set对象
+
+        // Set 对象允许你存储任何类型的 唯一值 ，无论是原始值或者是对象引用。 
+        // Set对象是值的集合，你可以按照插入的顺序迭代它的元素。 
+        // Set中的元素只会出现一次，即 Set 中的元素是唯一的。（去重的条件）
+
+        // 语法：
+        // new Set([iterable]);
+
+        // 参数： 
+        // iterable，如果传递一个可迭代对象(包括 Array，Map，Set，String，TypedArray，arguments 对象等等)，
+        // 它的所有元素将被添加到新的 Set中。如果不指定此参数或其值为null，则新的 Set为空。
+
+
+        function unique(arr) {
+            //通过Set对象，对数组去重，结果又返回一个Set对象
+            //通过from方法，将Set对象转为数组
+            return Array.from(new Set(arr))
+        }
+
+
+
+        // 另外一种方法
+        // var arr=["1","1","2","3","2","3"];
+        // var res=[];
+        // var json={};
+        // for(var i=0;i<arr.length;i++){
+        //     if(!json[arr[i]]){
+        //         res.push(arr[i]);
+        //         json[arr[i]]=1;
+        //     }
+        // }
+        // console.log(res);
+    </script>
+</body>
+
+</html>
